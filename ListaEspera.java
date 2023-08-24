@@ -1,32 +1,43 @@
+/**Estudiante: Joel Antonio Jaquez Lopez
+ * Carné: #23369
+ * Carrera: Ingeniería en Sistemas
+ * Fecha de inicio: 21/8/2023
+ * Ultima fecha de actualizacion: 24/8/2023
+ *  La clase ListaEspera representa una lista de espera de clientes para una habitación de hotel.
+ */
 public class ListaEspera{
-    private Cliente[] clientesEnEspera;
-    private int cantidadDeClientesEnEspera;
+    private Cliente[] clientes; // Arreglo de clientes en la lista de espera
+    private int numClientes; // Número actual de clientes en la lista de espera
 
+/**
+     * Constructor de la clase ListaEspera.
+     * Crea un arreglo de clientes con capacidad para 10 elementos y establece el número actual de clientes en 0.
+     */
     public ListaEspera(){
-        this.clientesEnEspera;
-        this.cantidadDeClientesEnEspera = 0;
+        this.clientes = new Cliente[10];
+        this.numClientes = 0;
     }
 
+/**
+     * Método para agregar un cliente a la lista de espera.
+     * @param cliente El cliente a agregar a la lista de espera.
+     */
     public void agregarCliente(Cliente cliente){
-        if (cantidadDeClientesEnEspera < 10){
-            clientesEnEspera[cantidadDeClientesEnEspera] = cliente;
-            cantidadDeClientesEnEspera++;
+          // Si hay espacio en la lista de espera, se agrega el cliente y se incrementa el número actual de clientes
+        if (numClientes < 10){
+            clientes[numClientes] = cliente;
+            numClientes++;
         }else {
-            System.out.println("La lista de espera se encuetra llena");
+            System.out.println("La lista de espera se encuentra llena");
         }
     }
 
-    public Cliente obtenerSiguienteCliente(){
-        if (cantidadDeClientesEnEspera > 0){
-            Cliente siguienteCliente = clientesEnEspera[0];
-            for (int i = 0; i < cantidadDeClientesEnEspera - 1; i++){
-                clientesEnEspera[i] = clientesEnEspera[i + 1];
-            }
-            cantidadDeClientesEnEspera--;
-            return siguienteCliente;
-        }else {
-            System.out.println("No hay clientes en la lista de espera");
-            return null;
+/**
+     * Método para obtener el arreglo de clientes en la lista de espera.
+     * @return El arreglo de clientes en la lista de espera.
+     */
+    public Cliente[] getClientes(){
+        return clientes;
         }
     }
-}
+
